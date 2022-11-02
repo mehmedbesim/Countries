@@ -18,7 +18,6 @@
 		D3D596B32789A002007C8D84 /* CountriesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D596B22789A002007C8D84 /* CountriesUITestsLaunchTests.swift */; };
 		D3D596C02789A5F0007C8D84 /* SavedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D596BF2789A5F0007C8D84 /* SavedVC.swift */; };
 		D3D596C22789A60F007C8D84 /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D596C12789A60F007C8D84 /* DetailVC.swift */; };
-		D3D596C52789A856007C8D84 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D596C42789A856007C8D84 /* Extensions.swift */; };
 		D3D596C92789AB71007C8D84 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D3D596C82789AB71007C8D84 /* Alamofire */; };
 		D3D596CC2789ABB0007C8D84 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = D3D596CB2789ABB0007C8D84 /* Kingfisher */; };
 		D3D596CE2789C1E5007C8D84 /* CountriesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D596CD2789C1E5007C8D84 /* CountriesResponse.swift */; };
@@ -61,7 +60,6 @@
 		D3D596B22789A002007C8D84 /* CountriesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		D3D596BF2789A5F0007C8D84 /* SavedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedVC.swift; sourceTree = "<group>"; };
 		D3D596C12789A60F007C8D84 /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
-		D3D596C42789A856007C8D84 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D3D596CD2789C1E5007C8D84 /* CountriesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesResponse.swift; sourceTree = "<group>"; };
 		D3D596CF2789C2EF007C8D84 /* CountryDetailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetailResponse.swift; sourceTree = "<group>"; };
 		D3D596D22789C55A007C8D84 /* CountryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryTableViewCell.swift; sourceTree = "<group>"; };
@@ -127,7 +125,6 @@
 				D3D596BF2789A5F0007C8D84 /* SavedVC.swift */,
 				D3D596C12789A60F007C8D84 /* DetailVC.swift */,
 				D3D596D7278A1BE2007C8D84 /* util */,
-				D3D596C32789A83C007C8D84 /* extension */,
 				D3D596952789A001007C8D84 /* Main.storyboard */,
 				D3D596982789A002007C8D84 /* Assets.xcassets */,
 				D3D5969A2789A002007C8D84 /* LaunchScreen.storyboard */,
@@ -151,14 +148,6 @@
 				D3D596B22789A002007C8D84 /* CountriesUITestsLaunchTests.swift */,
 			);
 			path = CountriesUITests;
-			sourceTree = "<group>";
-		};
-		D3D596C32789A83C007C8D84 /* extension */ = {
-			isa = PBXGroup;
-			children = (
-				D3D596C42789A856007C8D84 /* Extensions.swift */,
-			);
-			path = extension;
 			sourceTree = "<group>";
 		};
 		D3D596C62789AADC007C8D84 /* entity */ = {
@@ -335,7 +324,6 @@
 				D3D596942789A001007C8D84 /* HomeVC.swift in Sources */,
 				D3D596D02789C2EF007C8D84 /* CountryDetailResponse.swift in Sources */,
 				D3D596902789A001007C8D84 /* AppDelegate.swift in Sources */,
-				D3D596C52789A856007C8D84 /* Extensions.swift in Sources */,
 				D3D596922789A001007C8D84 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

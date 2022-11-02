@@ -5,12 +5,11 @@ class HomeVC: UIViewController {
     
     let BASE_URL: String = "https://wft-geo-db.p.rapidapi.com"
     let firstPath: String = "/v1/geo/countries?limit=10"
-    var nextPath: String?
     
     var isDataLoading = false
     
     let AUTH_HEADERS: HTTPHeaders = [
-        "x-rapidapi-key": "b6b096306cmsh523c1dcc7295874p10f038jsnd0911eecbf30"
+        "x-rapidapi-key": "1ddee3756fmsh1af6af66c3049a6p18d606jsn0c6dfa3361af"
     ]
     
     @IBOutlet weak var tableView: UITableView!
@@ -22,7 +21,6 @@ class HomeVC: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        tableView.separatorColor = UIColor(white: 0, alpha: 0)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,6 +32,7 @@ class HomeVC: UIViewController {
             return
         }
         isDataLoading = true
+        
         AF.request(self.BASE_URL + path, method: .get, headers: AUTH_HEADERS).responseJSON { response in
             switch response.result {
             case .success(let value):
@@ -45,13 +44,7 @@ class HomeVC: UIViewController {
                     } else {
                         self.countries.append(contentsOf: res.data)
                     }
-                    var nextLink: Link?
-                    for link in res.links {
-                        if link.rel == "next" {
-                            nextLink = link
-                        }
-                    }
-                    self.nextPath = nextLink?.href ?? nil
+                    
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
                     }
@@ -68,6 +61,7 @@ class HomeVC: UIViewController {
                 self.isDataLoading = false
                 print(error)
             }
+
         }
     }
     
@@ -88,17 +82,6 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource {
         cell.countryName.text = country.name
         
         return cell
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let offsetY = scrollView.contentOffset.y
-        let contentHeight = scrollView.contentSize.height
-
-        if offsetY > contentHeight - scrollView.frame.size.height {
-            if self.nextPath != nil {
-                self.getCountries(path: self.nextPath!)
-            }
-        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

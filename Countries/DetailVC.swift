@@ -24,9 +24,12 @@ class DetailVC: UIViewController {
         if let c = country {
             getCountryDetail(code: c.code)
             navigationItem.title = c.name
-            countryCodeLabel.attributedText = NSMutableAttributedString()
-                .bold("Country Code: ")
-                .normal(c.code)
+            
+            let attributedString = NSMutableAttributedString(string:"Country Code: ", attributes:[NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 15)])
+            attributedString.append(NSMutableAttributedString(string:c.code, attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 15)]))
+
+            countryCodeLabel.attributedText = attributedString
+            
             if let data = UserDefaults.standard.value(forKey:"saved") as? Data {
                 let saved = try! PropertyListDecoder().decode(Array<Country>.self, from: data)
                 setFavourite(isFavourite: saved.contains(c))
@@ -34,19 +37,12 @@ class DetailVC: UIViewController {
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        setTabBarHidden(true)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        setTabBarHidden(false)
-    }
+
     
     func getCountryDetail(code: String){
         AF.request(self.detailUrl + code, method: .get, headers: AUTH_HEADERS).responseJSON { response in
             switch response.result {
             case .success(let value):
-                print("API Response: \(value)")
                 do {
                     let res = try JSONDecoder().decode(CountryDetailResponse.self, from: response.data!)
                     self.loadFlag(url: res.data.flagImageUri)
